@@ -16,8 +16,8 @@ const temperatures = [
  */
 function filterHighTemperatures(temps: number[]): number[] {
   // Your code here
-
-  return []; // replace the empty array with what you see is fit
+  const moreThantwofive: number[] = temps.filter((n) => n >= 25);
+  return moreThantwofive; // replace the empty array with what you see is fit
 }
 
 /**
@@ -29,8 +29,8 @@ function filterHighTemperatures(temps: number[]): number[] {
  */
 function filterLowTemperatures(temps: number[]): number[] {
   // Your code here
-
-  return []; // replace the empty array with what you see is fit
+  const lessThantwofive: number[] = temps.filter((n) => n < 20);
+  return lessThantwofive; // replace the empty array with what you see is fit
 }
 
 /**
@@ -43,8 +43,8 @@ function filterLowTemperatures(temps: number[]): number[] {
  */
 function convertCelsiusToFahrenheit(temps: number[]): number[] {
   // Your code here
-
-  return []; // replace the empty array with what you see is fit
+  const toF: number[] = temps.map((n) => (n * 9) / 5 + 32);
+  return toF; // replace the empty array with what you see is fit
 }
 
 /**
@@ -61,8 +61,16 @@ type TemperatureLabel = "Warm" | "Mild" | "Cool";
 
 function labelTemperatures(temps: number[]): TemperatureLabel[] {
   // Your code here
-
-  return []; // replace the empty array with what you see is fit
+  return temps.map((N) => {
+    if (N >= 25) {
+      return "Warm";
+    } else if (N > 20 && N < 24) {
+      return "Mild";
+    } else {
+      return "Cool";
+    }
+  });
+  // replace the empty array with what you see is fit
 }
 
 /**
@@ -74,8 +82,8 @@ function labelTemperatures(temps: number[]): TemperatureLabel[] {
  */
 function getMaxTemperature(temps: number[]): number {
   // Your code here
-
-  return -1; // replace -1 with what you see is fit
+  const highest = Math.max(...temps);
+  return highest; // replace -1 with what you see is fit
 }
 
 /**
@@ -87,8 +95,8 @@ function getMaxTemperature(temps: number[]): number {
  */
 function getMinTemperature(temps: number[]): number {
   // Your code here
-
-  return -1; // replace -1 with what you see is fit
+  const lowest = Math.min(...temps);
+  return lowest; // replace -1 with what you see is fit
 }
 
 export {
