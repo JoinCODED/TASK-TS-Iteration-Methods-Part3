@@ -17,7 +17,7 @@ const temperatures = [
 function filterHighTemperatures(temps: number[]): number[] {
   // Your code here
 
-  return []; // replace the empty array with what you see is fit
+  return temps.filter(x => x>= 25); // replace the empty array with what you see is fit
 }
 
 /**
@@ -30,7 +30,7 @@ function filterHighTemperatures(temps: number[]): number[] {
 function filterLowTemperatures(temps: number[]): number[] {
   // Your code here
 
-  return []; // replace the empty array with what you see is fit
+  return temps.filter(x => x< 20); // replace the empty array with what you see is fit
 }
 
 /**
@@ -43,8 +43,9 @@ function filterLowTemperatures(temps: number[]): number[] {
  */
 function convertCelsiusToFahrenheit(temps: number[]): number[] {
   // Your code here
+  const fehrenheit = temps.map(x => (x*(9/5)+32));
 
-  return []; // replace the empty array with what you see is fit
+  return fehrenheit; // replace the empty array with what you see is fit
 }
 
 /**
@@ -61,8 +62,12 @@ type TemperatureLabel = "Warm" | "Mild" | "Cool";
 
 function labelTemperatures(temps: number[]): TemperatureLabel[] {
   // Your code here
-
-  return []; // replace the empty array with what you see is fit
+  return temps.map((x) => {
+    if ( x>= 25)  return "Warm";
+    else if (x>= 20) return "Mild";
+    else return "Cool" ;
+  })
+   // replace the empty array with what you see is fit
 }
 
 /**
@@ -74,8 +79,9 @@ function labelTemperatures(temps: number[]): TemperatureLabel[] {
  */
 function getMaxTemperature(temps: number[]): number {
   // Your code here
+  let max = temps.reduce((x,y) => { return Math.max(x,y)})
 
-  return -1; // replace -1 with what you see is fit
+  return max; // replace -1 with what you see is fit
 }
 
 /**
@@ -87,8 +93,9 @@ function getMaxTemperature(temps: number[]): number {
  */
 function getMinTemperature(temps: number[]): number {
   // Your code here
+  let min = temps.reduce((x,y) => { return Math.min(x,y)})
 
-  return -1; // replace -1 with what you see is fit
+  return min; // replace -1 with what you see is fit
 }
 
 export {
